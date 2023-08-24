@@ -1,5 +1,7 @@
+#lecture feedback system
+
 import jwt, datetime, os
-from flask import Flask, request
+from flask import Flask, request, render_template, redirect, url_for
 from flask_mysqldb import MySQL
 
 server = Flask(__name__)
@@ -10,6 +12,10 @@ server.config["MYSQL_USER"] = os.environ.get("MYSQL_USER")
 server.config["MYSQL_PASSWORD"] = os.environ.get("MYSQL_PASSWORD")
 server.config["MYSQL_DB"] = os.environ.get("MYSQL_DB")
 server.config["MYSQL_PORT"] = os.environ.get("MYSQL_PORT")
+
+@server.route("/login", methods=["GET"])
+def show_login():
+    return render_template("client/views/login.html")
 
 
 @server.route("/login", methods=["POST"])
@@ -32,12 +38,26 @@ def login():
         if auth.username != email or auth.password != password:
             return "Invalid credentials", 401
         else:
-            return createJWT(auth.username, os.environ.get("JWT_SECRET"), True)
+            return createJWT(auth.username, os.environ.get("JWT_SECRET"), True), render_template("/client/views/dashboard.html", username=auth.username)
     else:
         return "User not found", 401
 
 
-@server.route("/validate", methods=["POST"])
+@server.route("/", methods=["GET"])
+def dashboard():
+    token = request.headers.get("Authorization")
+    # validate token from validate() function and redirect to dashboard
+    if not token:
+        return "Missing token", 401
+    else:
+        # validate
+        decoded = validate()
+        if decoded[1] == 200:
+            return render_template("/client/views/dashboard.html", username=decoded[0]["username"])
+        else:
+            return decoded[0], 401
+    
+
 def validate():
     token = request.headers.get("Authorization")
     if not token:
@@ -68,4 +88,4 @@ def createJWT(username, secrect, authz):
 
 if __name__ == "__main__":
     print(__name__)
-    server.run(host="0.0.0.0", port=5000)
+    server.run(host="0.0.0.0", port=9000)
