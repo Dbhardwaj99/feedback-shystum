@@ -1,14 +1,17 @@
-#dockerfile to run sql
-FROM mysql:5.7.34
-ENV MYSQL_ROOT_PASSWORD=root
-ENV MYSQL_USER=admin
-ENV MYSQL_PASSWORD=password
+FROM python:3.10-slim-bullseye
 
-# ADD a init.sql to the docker-entrypoint-initdb.d/ directory
-ADD init.sql /docker-entrypoint-initdb.d/
+RUN apt-get update\
+    && apt-get install -y --no-install-recommends --no-install-suggests \
+    build-essential \
+    && pip install --no-cache-dir --upgrade pip
 
-# Expose port 3306
-EXPOSE 3306
+WORKDIR /app
+COPY ./requirements.txt /app
 
-# Run the command to start mysql
-CMD ["mysqld"]
+RUN pip install --no-cache-dir --requirement /app/requirements.txt
+
+COPY . /app
+
+EXPOSE 9000
+
+CMD ["python3", "server.py"]
