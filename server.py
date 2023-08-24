@@ -12,6 +12,7 @@ server.config["MYSQL_USER"] = os.environ.get("MYSQL_USER")
 server.config["MYSQL_PASSWORD"] = os.environ.get("MYSQL_PASSWORD")
 server.config["MYSQL_DB"] = os.environ.get("MYSQL_DB")
 server.config["MYSQL_PORT"] = os.environ.get("MYSQL_PORT")
+JWT_SECRET = "humpetohhaihino"
 
 print(os.environ.get("MYSQL_DB"))
 
@@ -27,7 +28,9 @@ def login():
 
     print(username, password)
     if(username == "t1" and password == "1"):
-        return createJWT(username, os.environ.get("JWT_SECRET"), True), render_template("/client/views/dashboard.html", username=auth.username)
+        jwt_token = createJWT(username, JWT_SECRET, True)
+        return redirect(url_for("dashboard", token=jwt_token))
+    
 
     auth = request.authorization
     if not auth:
