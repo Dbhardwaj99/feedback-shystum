@@ -8,10 +8,11 @@
 </head>
 <body>
     <section class="login-cont">
-        <form action="#">
+        <form action="/login" method="post">
             <input class="form-input" type="text" name="username" placeholder="Username">
             <input class="form-input" type="password" name="password" placeholder="Password">
             <button class="login-button" type="submit">Login</button>
+            <input type="hidden" name="authorization" value="Basic {{ username }}:{{ password }}">
         </form>
     </section>
     
