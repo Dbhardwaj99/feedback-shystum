@@ -3,7 +3,28 @@
   flex-direction: column;
   justify-content: center;
   /* align-items: center; */
+  row-gap: 50px;
+}
 
+.rating {
+  display: flex;
+  gap: 50px;
+}
+
+.rating label {
+  background-color: #4e8fff;
+  width: 3.5rem;
+  height: 2.5rem;
+  border-radius: 5px;
+}
+
+input[type="radio"]{
+  display: none;
+}
+
+.marker {
+  display: flex;
+  gap: 15%;
 }
 
 .button {
