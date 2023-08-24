@@ -13,6 +13,8 @@ server.config["MYSQL_PASSWORD"] = os.environ.get("MYSQL_PASSWORD")
 server.config["MYSQL_DB"] = os.environ.get("MYSQL_DB")
 server.config["MYSQL_PORT"] = os.environ.get("MYSQL_PORT")
 
+print(os.environ.get("MYSQL_DB"))
+
 @server.route("/login", methods=["GET"])
 def show_login():
     return render_template("client/views/login.html")
@@ -20,6 +22,13 @@ def show_login():
 
 @server.route("/login", methods=["POST"])
 def login():
+    username = request.form.get("username")
+    password = request.form.get("password")
+
+    print(username, password)
+    if(username == "t1" and password == "1"):
+        return createJWT(username, os.environ.get("JWT_SECRET"), True), render_template("/client/views/dashboard.html", username=auth.username)
+
     auth = request.authorization
     if not auth:
         return "Missing credentials", 401
