@@ -108,6 +108,12 @@ def submitform():
     print("Question 3:", q3)
     print("Question 4:", q4)
     print("Question 5:", q5)
+    print(type(q1))
+
+    cur = mysql.connection.cursor()
+    cur.execute(
+        "INSERT INTO class_feedback (reg_no, q1, q2, q3, q4, q5) VALUES (%s, %s, %s, %s, %s, %s)", (regnum, q1, q2, q3, q4, q5)
+    )
         
     token = request.cookies.get("jwt_token")
 
