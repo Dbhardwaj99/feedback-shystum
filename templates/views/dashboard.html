@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../static/css/dash.css">
     <title>Dashboard</title>
 </head>
+
 <body>
     <!-- <form action="/form" method="post"> 
         <button type="submit">Create Feedback</button>
@@ -17,97 +19,96 @@
     </form> -->
     <section class="header">
         <h1>Hello !</h1>
-      </section>
-      <section class="week-bar">
+    </section>
+    <section class="week-bar">
         <ul>
-          <li class="mon">Monday</li>
-          <li class="tue">Tuesday</li>
-          <li class="wed">Wednesday</li>
-          <li class="thu">Thursday</li>
-          <li class="fri">Friday</li>
-          <li class="sat">Saturday</li>
+            <li class="mon">Monday</li>
+            <li class="tue">Tuesday</li>
+            <li class="wed">Wednesday</li>
+            <li class="thu">Thursday</li>
+            <li class="fri">Friday</li>
+            <li class="sat">Saturday</li>
         </ul>
-      </section>
-      <main class="subjects">
+    </section>
+    <main class="subjects">
         <section class="mon1 d">
-          <div class="class">
-          <p class="time">9:00 - 10:00 Am</p>
-          <p class="sub"><span class="sub-code">MA-3432</span>Engenieering Mathematics</p>
-          <div class="buttons">
-              <button>Create Feedback</button>
-              <button>Get Analysis</button>
-          </div>
-      </div>
-          <div class="class">
-          <p class="time">1:00 - 2:00 Pm</p>
-          <p class="sub"><span class="sub-code">IT-3432</span>Data Structure</p>
-          <div class="buttons">
-              <button>Create Feedback</button>
-              <button>Get Analysis</button>
-          </div>
-      </div>
-  </section>
-        <section class="tue1 d">  
-          <div class="class">
-          <p class="time">11:00 - 12:00 Am</p>
-          <p class="sub"><span class="sub-code">MA-3432</span>Data Structure</p>
-          <div class="buttons">
-              <button>Create Feedback</button>
-              <button>Get Analysis</button>
-          </div>
-      </div>
-  </section>
-        <section class="wed1 d">  
-          <div class="class">
-          <p class="time">9:00 - 10:00 Am</p>
-          <p class="sub"><span class="sub-code">MA-3432</span>Engenieering Mathematics</p>
-          <div class="buttons">
-              <button>Create Feedback</button>
-              <button>Get Analysis</button>
-          </div>
-      </div></section>
+            <div class="class">
+                <p id="time1" class="time">9:00 - 10:00 Am</p>
+                <p class="sub"><span id="sub-code1" class="sub-code">MA-3432</span>Engenieering Mathematics</p>
+                <div class="buttons">
+                    <button onclick="createfeedback1()">Create Feedback</button>
+                    <button>Get Analysis</button>
+                </div>
+            </div>
+            <div class="class">
+                <p id="time2" class="time">1:00 - 2:00 Pm</p>
+                <p class="sub"><span id="sub-code2" class="sub-code">IT-3432</span>Data Structure</p>
+                <div class="buttons">
+                    <button onclick="createfeedback2()">Create Feedback</button>
+                    <button>Get Analysis</button>
+                </div>
+            </div>
+        </section>
+        <section class="tue1 d">
+            <div class="class">
+                <p id="time3" class="time">11:00 - 12:00 Am</p>
+                <p class="sub"><span id="sub-code3" class="sub-code">CS-1432</span>Data Structure</p>
+                <div class="buttons">
+                    <button onclick="createfeedback3()">Create Feedback</button>
+                    <button>Get Analysis</button>
+                </div>
+            </div>
+        </section>
+        <section class="wed1 d">
+            <div class="class">
+                <p id="time4" class="time">9:00 - 10:00 Am</p>
+                <p class="sub"><span id="sub-code4" class="sub-code">MA-3432</span>Engenieering Mathematics</p>
+                <div class="buttons">
+                    <button onclick="createfeedback4()">Create Feedback</button>
+                    <button>Get Analysis</button>
+                </div>
+            </div>
+        </section>
         <section class="thu1 d">No Classes Today</section>
         <section class="fri1 d">
-          <div class="class">
-              <p class="time">9:00 - 10:00 Am</p>
-              <p class="sub"><span class="sub-code">MA-3432</span>Engenieering Mathematics</p>
-              <div class="buttons">
-                  <button>Create Feedback</button>
-                  <button>Get Analysis</button>
-              </div>
-          </div>
-          <div class="class">
-              <p class="time">9:00 - 10:00 Am</p>
-              <p class="sub"><span class="sub-code">MA-3432</span>Engenieering Mathematics</p>
-              <div class="buttons">
-                  <button>Create Feedback</button>
-                  <button>Get Analysis</button>
-              </div>
-          </div>
-          <div class="class">
-              <p class="time">9:00 - 10:00 Am</p>
-              <p class="sub"><span class="sub-code">MA-3432</span>Engenieering Mathematics</p>
-              <div class="buttons">
-                  <button>Create Feedback</button>
-                  <button>Get Analysis</button>
-              </div>
-          </div>
+            <div class="class">
+                <p id="time5" class="time">9:00 - 10:00 Am</p>
+                <p class="sub"><span id="sub-code5" class="sub-code">CS-5412</span>Engenieering Mathematics</p>
+                <div class="buttons">
+                    <button onclick="createfeedback5()">Create Feedback</button>
+                    <button>Get Analysis</button>
+                </div>
+            </div>
+            <div class="class">
+                <p id="time6" class="time">9:00 - 10:00 Am</p>
+                <p class="sub"><span id="sub-code6" class="sub-code">IT-1234</span>Engenieering Mathematics</p>
+                <div class="buttons">
+                    <button onclick="createfeedback6()">Create Feedback</button>
+                    <button>Get Analysis</button>
+                </div>
+            </div>
+            <div class="class">
+                <p id="time7" class="time">9:00 - 10:00 Am</p>
+                <p class="sub"><span id="sub-code7" class="sub-code">CS-8765</span>Engenieering Mathematics</p>
+                <div class="buttons">
+                    <button onclick="createfeedback7()">Create Feedback</button>
+                    <button>Get Analysis</button>
+                </div>
+            </div>
         </section>
         <section class="sat1 d">
-          <div class="class">
-              <p class="time">9:00 - 10:00 Am</p>
-              <p class="sub"><span class="sub-code">MA-3432</span>Engenieering Mathematics</p>
-              <div class="buttons">
-                  <button>Create Feedback</button>
-                  <button>Get Analysis</button>
-              </div>
-          </div>
+            <div class="class">
+                <p id="time8" class="time">9:00 - 10:00 Am</p>
+                <p class="sub"><span id="sub-code8" class="sub-code">MA-3432</span>Engenieering Mathematics</p>
+                <div class="buttons">
+                    <button onclick="createfeedback8()">Create Feedback</button>
+                    <button>Get Analysis</button>
+                </div>
+            </div>
         </section>
-      </main>
-   
-    
-    
+    </main>
 </body>
+
 </html>
 
 <script>
@@ -125,97 +126,235 @@
     const thu1 = document.querySelector(".thu1");
     const fri1 = document.querySelector(".fri1");
     const sat1 = document.querySelector(".sat1");
-  
+
     mon.addEventListener("click", function () {
-      // alldiv.style.display = "none";
-      mon1.style.display = "flex";
-      tue1.style.display = "none";
-      wed1.style.display = "none";
-      thu1.style.display = "none";
-      fri1.style.display = "none";
-      sat1.style.display = "none";
-      mon.classList.add("active");
-      // removing active class
-      tue.classList.remove("active");
-      wed.classList.remove("active");
-      thu.classList.remove("active");
-      fri.classList.remove("active");
-      sat.classList.remove("active");
+        // alldiv.style.display = "none";
+        mon1.style.display = "flex";
+        tue1.style.display = "none";
+        wed1.style.display = "none";
+        thu1.style.display = "none";
+        fri1.style.display = "none";
+        sat1.style.display = "none";
+        mon.classList.add("active");
+        // removing active class
+        tue.classList.remove("active");
+        wed.classList.remove("active");
+        thu.classList.remove("active");
+        fri.classList.remove("active");
+        sat.classList.remove("active");
     });
     tue.addEventListener("click", function () {
-      mon1.style.display = "none";
-      tue1.style.display = "flex";
-      wed1.style.display = "none";
-      thu1.style.display = "none";
-      fri1.style.display = "none";
-      sat1.style.display = "none";
-      tue.classList.add("active");
-      // removing active class
-      mon.classList.remove("active");
-      wed.classList.remove("active");
-      thu.classList.remove("active");
-      fri.classList.remove("active");
-      sat.classList.remove("active");
+        mon1.style.display = "none";
+        tue1.style.display = "flex";
+        wed1.style.display = "none";
+        thu1.style.display = "none";
+        fri1.style.display = "none";
+        sat1.style.display = "none";
+        tue.classList.add("active");
+        // removing active class
+        mon.classList.remove("active");
+        wed.classList.remove("active");
+        thu.classList.remove("active");
+        fri.classList.remove("active");
+        sat.classList.remove("active");
     });
     wed.addEventListener("click", function () {
-      mon1.style.display = "none";
-      tue1.style.display = "none";
-      wed1.style.display = "flex";
-      thu1.style.display = "none";
-      fri1.style.display = "none";
-      sat1.style.display = "none";
-      wed.classList.add("active");
-      // removing active class
-      mon.classList.remove("active");
-      tue.classList.remove("active");
-      thu.classList.remove("active");
-      fri.classList.remove("active");
-      sat.classList.remove("active");
+        mon1.style.display = "none";
+        tue1.style.display = "none";
+        wed1.style.display = "flex";
+        thu1.style.display = "none";
+        fri1.style.display = "none";
+        sat1.style.display = "none";
+        wed.classList.add("active");
+        // removing active class
+        mon.classList.remove("active");
+        tue.classList.remove("active");
+        thu.classList.remove("active");
+        fri.classList.remove("active");
+        sat.classList.remove("active");
     });
     thu.addEventListener("click", function () {
-      mon1.style.display = "none";
-      tue1.style.display = "none";
-      wed1.style.display = "none";
-      thu1.style.display = "flex";
-      fri1.style.display = "none";
-      sat1.style.display = "none";
-      thu.classList.add("active");
-      // removing active class
-      mon.classList.remove("active");
-      wed.classList.remove("active");
-      tue.classList.remove("active");
-      fri.classList.remove("active");
-      sat.classList.remove("active");
+        mon1.style.display = "none";
+        tue1.style.display = "none";
+        wed1.style.display = "none";
+        thu1.style.display = "flex";
+        fri1.style.display = "none";
+        sat1.style.display = "none";
+        thu.classList.add("active");
+        // removing active class
+        mon.classList.remove("active");
+        wed.classList.remove("active");
+        tue.classList.remove("active");
+        fri.classList.remove("active");
+        sat.classList.remove("active");
     });
     fri.addEventListener("click", function () {
-      mon1.style.display = "none";
-      tue1.style.display = "none";
-      wed1.style.display = "none";
-      thu1.style.display = "none";
-      fri1.style.display = "flex";
-      sat1.style.display = "none";
-      fri.classList.add("active");
-      // removing active class
-      mon.classList.remove("active");
-      wed.classList.remove("active");
-      thu.classList.remove("active");
-      tue.classList.remove("active");
-      sat.classList.remove("active");
+        mon1.style.display = "none";
+        tue1.style.display = "none";
+        wed1.style.display = "none";
+        thu1.style.display = "none";
+        fri1.style.display = "flex";
+        sat1.style.display = "none";
+        fri.classList.add("active");
+        // removing active class
+        mon.classList.remove("active");
+        wed.classList.remove("active");
+        thu.classList.remove("active");
+        tue.classList.remove("active");
+        sat.classList.remove("active");
     });
     sat.addEventListener("click", function () {
-      mon1.style.display = "none";
-      tue1.style.display = "none";
-      wed1.style.display = "none";
-      thu1.style.display = "none";
-      fri1.style.display = "none";
-      sat1.style.display = "flex";
-      sat.classList.add("active");
-      // removing active class
-      mon.classList.remove("active");
-      wed.classList.remove("active");
-      thu.classList.remove("active");
-      fri.classList.remove("active");
-      tue.classList.remove("active");
+        mon1.style.display = "none";
+        tue1.style.display = "none";
+        wed1.style.display = "none";
+        thu1.style.display = "none";
+        fri1.style.display = "none";
+        sat1.style.display = "flex";
+        sat.classList.add("active");
+        // removing active class
+        mon.classList.remove("active");
+        wed.classList.remove("active");
+        thu.classList.remove("active");
+        fri.classList.remove("active");
+        tue.classList.remove("active");
     });
-  </script>
-  
+
+    const headerfile = {};
+
+    function createfeedback1() {
+        console.log("button working")
+        let subcode = document.getElementById("sub-code1").textContent;
+        console.log(subcode);
+        let lecture_time = document.getElementById("time1").textContent;
+        console.log(lecture_time);
+        let currentDate = new Date();
+        let formattedDate = currentDate.toISOString().split('T')[0];
+
+        headerfile["subject-code"] = subcode;
+        headerfile["date"] = formattedDate;
+        headerfile["time"] = lecture_time;
+        console.log(headerfile);
+        sendingData(headerfile);
+    }
+    function createfeedback2() {
+        console.log("button working")
+        let subcode = document.getElementById("sub-code2").textContent;
+        console.log(subcode);
+        let lecture_time = document.getElementById("time2").textContent;
+        console.log(lecture_time);
+        let currentDate = new Date();
+        let formattedDate = currentDate.toISOString().split('T')[0];
+
+        headerfile["subject-code"] = subcode;
+        headerfile["date"] = formattedDate;
+        headerfile["time"] = lecture_time;
+        console.log(headerfile);
+        sendingData(headerfile);
+    }
+    function createfeedback3() {
+        console.log("button working")
+        let subcode = document.getElementById("sub-code3").textContent;
+        console.log(subcode);
+        let lecture_time = document.getElementById("time3").textContent;
+        console.log(lecture_time);
+        let currentDate = new Date();
+        let formattedDate = currentDate.toISOString().split('T')[0];
+
+        headerfile["subject-code"] = subcode;
+        headerfile["date"] = formattedDate;
+        headerfile["time"] = lecture_time;
+        console.log(headerfile);
+        sendingData(headerfile);
+    }
+    function createfeedback4() {
+        console.log("button working")
+        let subcode = document.getElementById("sub-code4").textContent;
+        console.log(subcode);
+        let lecture_time = document.getElementById("time4").textContent;
+        console.log(lecture_time);
+        let currentDate = new Date();
+        let formattedDate = currentDate.toISOString().split('T')[0];
+
+        headerfile["subject-code"] = subcode;
+        headerfile["date"] = formattedDate;
+        headerfile["time"] = lecture_time;
+        console.log(headerfile);
+        sendingData(headerfile);
+    }
+    function createfeedback5() {
+        console.log("button working")
+        let subcode = document.getElementById("sub-code5").textContent;
+        console.log(subcode);
+        let lecture_time = document.getElementById("time5").textContent;
+        console.log(lecture_time);
+        let currentDate = new Date();
+        let formattedDate = currentDate.toISOString().split('T')[0];
+
+        headerfile["subject-code"] = subcode;
+        headerfile["date"] = formattedDate;
+        headerfile["time"] = lecture_time;
+        console.log(headerfile);
+        sendingData(headerfile);
+    }
+    function createfeedback6() {
+        console.log("button working")
+        let subcode = document.getElementById("sub-code6").textContent;
+        console.log(subcode);
+        let lecture_time = document.getElementById("time6").textContent;
+        console.log(lecture_time);
+        let currentDate = new Date();
+        let formattedDate = currentDate.toISOString().split('T')[0];
+
+        headerfile["subject-code"] = subcode;
+        headerfile["date"] = formattedDate;
+        headerfile["time"] = lecture_time;
+        console.log(headerfile);
+        sendingData(headerfile);
+    }
+    function createfeedback7() {
+        console.log("button working")
+        let subcode = document.getElementById("sub-code7").textContent;
+        console.log(subcode);
+        let lecture_time = document.getElementById("time7").textContent;
+        console.log(lecture_time);
+        let currentDate = new Date();
+        let formattedDate = currentDate.toISOString().split('T')[0];
+
+        headerfile["subject-code"] = subcode;
+        headerfile["date"] = formattedDate;
+        headerfile["time"] = lecture_time;
+        console.log(headerfile);
+        sendingData(headerfile);
+    }
+    function createfeedback8() {
+        console.log("button working")
+        let subcode = document.getElementById("sub-code8").textContent;
+        console.log(subcode);
+        let lecture_time = document.getElementById("time8").textContent;
+        console.log(lecture_time);
+        let currentDate = new Date();
+        let formattedDate = currentDate.toISOString().split('T')[0];
+
+        headerfile["subject-code"] = subcode;
+        headerfile["date"] = formattedDate;
+        headerfile["time"] = lecture_time;
+        console.log(headerfile);
+        sendingData(headerfile);
+    }
+    function sendingData(headerfile) {
+        fetch('/your-backend-endpoint', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(headerfile)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Response from backend:', data);
+            })
+            .catch(error => {
+                console.error('Error sending data:', error);
+            });
+    }
+</script>
