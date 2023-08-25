@@ -46,7 +46,7 @@
                 </p>
                 <div class="buttons">
                     <button onclick="createfeedback1()">Create Feedback</button>
-                    <button>Get Analysis</button>
+                    <button onclick="getrequestAnalysis()">Get Analysis</button>
                 </div>
             </div>
             <div class="class">
@@ -56,7 +56,7 @@
                 </p>
                 <div class="buttons">
                     <button onclick="createfeedback2()">Create Feedback</button>
-                    <button>Get Analysis</button>
+                    <button onclick="getrequestAnalysis()">Get Analysis</button>
                 </div>
             </div>
         </section>
@@ -68,7 +68,7 @@
                 </p>
                 <div class="buttons">
                     <button onclick="createfeedback3()">Create Feedback</button>
-                    <button>Get Analysis</button>
+                    <button onclick="getrequestAnalysis()">Get Analysis</button>
                 </div>
             </div>
         </section>
@@ -81,7 +81,7 @@
                 </p>
                 <div class="buttons">
                     <button onclick="createfeedback4()">Create Feedback</button>
-                    <button>Get Analysis</button>
+                    <button onclick="getrequestAnalysis()">Get Analysis</button>
                 </div>
             </div>
         </section>
@@ -95,7 +95,7 @@
                 </p>
                 <div class="buttons">
                     <button onclick="createfeedback5()">Create Feedback</button>
-                    <button>Get Analysis</button>
+                    <button onclick="getrequestAnalysis()">Get Analysis</button>
                 </div>
             </div>
             <div class="class">
@@ -106,7 +106,7 @@
                 </p>
                 <div class="buttons">
                     <button onclick="createfeedback6()">Create Feedback</button>
-                    <button>Get Analysis</button>
+                    <button onclick="getrequestAnalysis()">Get Analysis</button>
                 </div>
             </div>
             <div class="class">
@@ -117,7 +117,7 @@
                 </p>
                 <div class="buttons">
                     <button onclick="createfeedback7()">Create Feedback</button>
-                    <button>Get Analysis</button>
+                    <button onclick="getrequestAnalysis()">Get Analysis</button>
                 </div>
             </div>
         </section>
@@ -130,7 +130,7 @@
                 </p>
                 <div class="buttons">
                     <button onclick="createfeedback8()">Create Feedback</button>
-                    <button>Get Analysis</button>
+                    <button onclick="getrequestAnalysis()">Get Analysis</button>
                 </div>
             </div>
         </section>
@@ -264,20 +264,22 @@
         console.log(headerfile);
         // sendingData(headerfile);
         // openPopup();
-        fetch("/form", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ "subject_code": "MA-230", "data": "2023-08-25", "time": "9 - 10 AM" }),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log("Response from backend:", data);
-            })
-            .catch((error) => {
-                console.error("Error sending data:", error);
-            });
+        // fetch("/form", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({ "subject_code": "MA-230", "data": "2023-08-25", "time": "9 - 10 AM" }),
+        // })
+        //     .then((response) => response.json())
+        //     .then(() => console.log({ "subject_code": "MA-230", "data": "2023-08-25", "time": "9 - 10 AM" }))
+        //     .then((data) => {
+        //         console.log("Response from backend:", data);
+        //     })
+        //     .catch((error) => {
+        //         console.error("Error sending data:", error);
+        //     });
+        getrequest();
     }
     function createfeedback2() {
         console.log("button working");
@@ -294,6 +296,8 @@
         console.log(headerfile);
         // sendingData(headerfile);
         // openPopup();
+        getrequest();
+
     }
     function createfeedback3() {
         console.log("button working");
@@ -310,6 +314,8 @@
         console.log(headerfile);
         // sendingData(headerfile);
         // openPopup();
+        getrequest();
+
     }
     function createfeedback4() {
         console.log("button working");
@@ -326,6 +332,8 @@
         console.log(headerfile);
         // sendingData(headerfile);
         // openPopup();
+        getrequest();
+
     }
     function createfeedback5() {
         console.log("button working");
@@ -342,6 +350,8 @@
         console.log(headerfile);
         // sendingData(headerfile);
         // openPopup();
+        getrequest();
+
     }
     function createfeedback6() {
         console.log("button working");
@@ -358,6 +368,8 @@
         console.log(headerfile);
         // sendingData(headerfile);
         // openPopup();
+        getrequest();
+
     }
     function createfeedback7() {
         console.log("button working");
@@ -374,6 +386,8 @@
         console.log(headerfile);
         // sendingData(headerfile);
         // openPopup();
+        getrequest();
+
     }
     function createfeedback8() {
         console.log("button working");
@@ -390,6 +404,8 @@
         console.log(headerfile);
         // sendingData(headerfile);
         // openPopup();
+        getrequest();
+
     }
     // function sendingData(headerfile) {
     //     fetch("/form", {
@@ -408,4 +424,25 @@
     //         });
     //     // alert(headerfile);
     // }
+
+    function getrequest() {
+        fetch("/form")
+            .then(response => response.json())
+            .then(data => {
+                console.log("Response data:", data);
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+            });
+    }
+    function getrequestAnalysis() {
+        fetch("/analysis")
+            .then(response => response.json())
+            .then(data => {
+                console.log("Response data:", data);
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+            });
+    }
 </script>
