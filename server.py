@@ -120,23 +120,8 @@ def submitform():
 
 @server.route("/analysis", methods=["GET"])
 def analysis():
-    token = request.cookies.get("jwt_token")
-    header = request.get()
-    # take header and get the id
+    return render_template("/views/feed-analysis.html")
 
-
-    print("JWT Token from Cookie:", token)
-    if token == "":
-        return "Missing token", 401
-    else:
-        # validate
-        decoded, status = validate(token)
-        if status == 200:
-            data = []
-
-            return render_template("/views/feed-analysis.html")
-        else:
-            return decoded, 401 
     
     
 server.route("/analysis", methods=["POST"])
