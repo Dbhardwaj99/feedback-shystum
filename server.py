@@ -60,7 +60,6 @@ def login():
 def dashboard():
     token = request.cookies.get("jwt_token")
     print("JWT Token from Cookie:", token)
-    # validate token from validate() function and redirect to dashboard
     if token == "":
         return "Missing token", 401
     else:
@@ -68,10 +67,44 @@ def dashboard():
         decoded, status = validate(token)
         if status == 200:
             return render_template("/views/dashboard.html", username=decoded["username"])
+            # response = make_response(redirect(url_for("form")))
+            # response.set_cookie("jwt_token", token)
+            # return response
         else:
             return decoded, 401
-    
+        
 
+
+
+       
+# @server.route("/form?{id}",id=id, methods=["GET"])
+# def form():
+#     token = request.cookies.get("jwt_token")
+#     print("JWT Token from Cookie:", token)
+#     if token == "":
+#         return "Missing token", 401
+#     else:
+#         # validate
+#         decoded, status = validate(token)
+#         if status == 200:
+#             return render_template("/views/feed-form.html", id=id)
+#         else:
+#             return decoded, 401
+        
+# @server.route("/analysis?{id}",id=id, methods=["GET"])
+# def analysis():
+#     token = request.cookies.get("jwt_token")
+#     print("JWT Token from Cookie:", token)
+#     if token == "":
+#         return "Missing token", 401
+#     else:
+#         # validate
+#         decoded, status = validate(token)
+#         if status == 200:
+#             return render_template("/views/feed-form.html", id=id)
+#         else:
+#             return decoded, 401
+    
 def validate(token):
     # token = request.headers.get("Authorization")
     if token == "":
@@ -85,7 +118,6 @@ def validate(token):
     except:
         return "Invalid token", 401
 
-
 def createJWT(username, secrect, authz):
     return jwt.encode(
         {
@@ -97,6 +129,11 @@ def createJWT(username, secrect, authz):
         secrect,
         algorithm="HS256",
     )
+
+def generate_UUID(date, slot_id, sub_id):
+    # create a small unique id using date, slot_id and sub_id
+    uuid = date + str(slot_id) + str(sub_id)
+    return uuid
 
 if __name__ == "__main__":
     print(__name__)
