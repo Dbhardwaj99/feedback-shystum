@@ -67,9 +67,6 @@ def dashboard():
         decoded, status = validate(token)
         if status == 200:
             return render_template("/views/dashboard.html", username=decoded["username"])
-            # response = make_response(redirect(url_for("form")))
-            # response.set_cookie("jwt_token", token)
-            # return response
         else:
             return decoded, 401
         
@@ -77,19 +74,44 @@ def dashboard():
 
 
        
-# @server.route("/form?{id}",id=id, methods=["GET"])
-# def form():
-#     token = request.cookies.get("jwt_token")
-#     print("JWT Token from Cookie:", token)
-#     if token == "":
-#         return "Missing token", 401
-#     else:
-#         # validate
-#         decoded, status = validate(token)
-#         if status == 200:
-#             return render_template("/views/feed-form.html", id=id)
-#         else:
-#             return decoded, 401
+@server.route("/form", methods=["POST"])
+def form():
+    id = request.form.get('feedback')
+    print("blablabla"+str(id))
+    token = request.cookies.get("jwt_token")
+
+    print("JWT Token from Cookie:", token)
+    if token == "":
+        return "Missing token", 401
+    else:
+        # validate
+        decoded, status = validate(token)
+        if status == 200:
+            print(decoded)
+            return render_template("/views/feed-form.html")
+        else:
+            return decoded, 401
+
+@server.route("/submitform", methods=["POST"])
+def submitform():
+    data = request.json
+    regnum = data.get("regnum")
+    q1 = data.get("q1")
+    q2 = data.get("q2")
+    q3 = data.get("q3")
+    q4 = data.get("q4")
+    q5 = data.get("q5")
+        
+
+    print("Registration Number:", regnum)
+    print("Question 1:", q1)
+    print("Question 2:", q2)
+    print("Question 3:", q3)
+    print("Question 4:", q4)
+    print("Question 5:", q5)
+        
+    return render_template("/views/thank-you.html")
+
         
 # @server.route("/analysis?{id}",id=id, methods=["GET"])
 # def analysis():

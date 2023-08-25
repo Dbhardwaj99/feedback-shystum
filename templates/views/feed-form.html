@@ -117,45 +117,44 @@
         <input id="q5_2" type="radio" name="q5" value="2" /><label for="q5_2">2</label>
         <input id="q5_3" type="radio" name="q5" value="3" /><label for="q5_3">3</label>
         <input id="q5_4" type="radio" name="q5" value="4" /><label for="q5_4">4</label>
-        <input id="q5_5" type="radio" name="q5" value="5" /><label for="q5_5">5</label>
+        <input id="q5_5" type="radio" name="q5" value="5" /><label for="q5_5">5</label2 </div>
+          <div class="marker">
+            <div>Least Satisfied</div>
+            <div>Very Satisfied</div>
+          </div>
       </div>
-      <div class="marker">
-        <div>Least Satisfied</div>
-        <div>Very Satisfied</div>
-      </div>
+      <button class="button" id="submit-bttn" type="button" onclick="getSelectedValues()">
+        Submit
+      </button>
     </div>
-    <button class="button" id="submit-bttn" type="button" onclick="getSelectedValues()">
-      Submit
-    </button>
-  </div>
-  <script>
-    function getSelectedValues() {
-      const selectedValues = {};
-      let i = 1;
-      const regnum = document.querySelector('input[name="registration-num"]').value;
-      console.log(regnum);
-      selectedValues["regnum"] = regnum;
-      const questions = document.querySelectorAll('input[type="radio"]');
-      questions.forEach((question, index) => {
-        if (question.checked) {
-          selectedValues[`q${i++}`] = question.value;
-        }
-      });
-      //sending this data to backend
-      fetch('/backend-url', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(selectedValues)
-      })
-        .then(response => response.json())
-        .then(data => {
-          console.log("Response from backend:", data);
+    <script>
+      function getSelectedValues() {
+        const selectedValues = {};
+        let i = 1;
+        const regnum = document.querySelector('input[name="registration-num"]').value;
+        console.log(regnum);
+        selectedValues["regnum"] = regnum;
+        const questions = document.querySelectorAll('input[type="radio"]');
+        questions.forEach((question, index) => {
+          if (question.checked) {
+            selectedValues[`q${i++}`] = question.value;
+          }
+        });
+        //sending this data to backend
+        fetch('/backend-url', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(selectedValues)
         })
-        .catch(error => {
-          console.error("Error sending data:", error);
-        })
+          .then(response => response.json())
+          .then(data => {
+            console.log("Response from backend:", data);
+          })
+          .catch(error => {
+            console.error("Error sending data:", error);
+          })
 
       console.log('Selected Values:', selectedValues);
     }
