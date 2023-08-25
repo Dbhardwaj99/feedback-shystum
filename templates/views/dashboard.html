@@ -269,7 +269,7 @@
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(headerfile),
+            body: JSON.stringify({ "subject_code": "MA-230", "data": "2023-08-25", "time": "9 - 10 AM" }),
         })
             .then((response) => response.json())
             .then((data) => {

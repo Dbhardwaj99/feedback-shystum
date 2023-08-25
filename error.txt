@@ -1,1 +1,1 @@
-Error sending data: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSO
+Error sending data: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
