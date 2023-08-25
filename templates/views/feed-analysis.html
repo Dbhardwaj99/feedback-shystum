@@ -1,12 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/analysis.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/css/analysis.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <section class="header">
+        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" " viewBox="0 0 24 24" width="2rem" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g><rect height="11" width="4" x="4" y="9"/><rect height="7" width="4" x="16" y="13"/><rect height="16" width="4" x="10" y="4"/></g></g></svg>
+      <h1>Feedback Analysis</h1>
+    </section>
+    <section class="week-bar">
+      <ul>
+        <li class="mon">Clarity</li>
+        <li class="tue">Engagement</li>
+        <li class="wed">Encouragement</li>
+        <li class="thu">Learning</li>
+        <li class="fri">Satisfaction</li>
+        <li class="sat">Commulative</li>
+      </ul>
+    </section>
+    <main class="subjects">
+      <section class="mon1 d">
+        <canvas id="chart1" width="400" height="170"></canvas>
+      </section>
+      <section class="tue1 d">
+        <canvas id="chart2" width="400" height="170"></canvas>
+      </section>
+      <section class="wed1 d">
+        <canvas id="chart3" width="400" height="170"></canvas>
+      </section>
+      <section class="thu1 d">
+        <canvas id="chart4" width="400" height="170"></canvas>
+      </section>
+      <section class="fri1 d">
+        <canvas id="chart5" width="400" height="170"></canvas>
+      </section>
+      <section class="sat1 d">
+        <canvas id="chart6" width="400" height="170"></canvas>
+      </section>
+    </main>
+  </body>
 </html>
+
+
+<script>
+    // list item selected
+    const mon = document.querySelector(".mon");
+    const tue = document.querySelector(".tue");
+    const wed = document.querySelector(".wed");
+    const thu = document.querySelector(".thu");
+    const fri = document.querySelector(".fri");
+    const sat = document.querySelector(".sat");
+    // container selected
+    const mon1 = document.querySelector(".mon1");
+    const tue1 = document.querySelector(".tue1");
+    const wed1 = document.querySelector(".wed1");
+    const thu1 = document.querySelector(".thu1");
+    const fri1 = document.querySelector(".fri1");
+    const sat1 = document.querySelector(".sat1");
+  
+    mon.addEventListener("click", function () {
+      // alldiv.style.display = "none";
+      mon1.style.display = "flex";
+      tue1.style.display = "none";
+      wed1.style.display = "none";
+      thu1.style.display = "none";
+      fri1.style.display = "none";
+      sat1.style.display = "none";
+      mon.classList.add("active");
+      // removing active class
+      tue.classList.remove("active");
+      wed.classList.remove("active");
+      thu.classList.remove("active");
+      fri.classList.remove("active");
+      sat.classList.remove("active");
+    });
+    tue.addEventListener("click", function () {
+      mon1.style.display = "none";
+      tue1.style.display = "flex";
+      wed1.style.display = "none";
+      thu1.style.display = "none";
+      fri1.style.display = "none";
+      sat1.style.display = "none";
+      tue.classList.add("active");
+      // removing active class
+      mon.classList.remove("active");
+      wed.classList.remove("active");
+      thu.classList.remove("active");
+      fri.classList.remove("active");
+      sat.classList.remove("active");
+    });
+    wed.addEventListener("click", function () {
+      mon1.style.display = "none";
+      tue1.style.display = "none";
+      wed1.style.display = "flex";
+      thu1.style.display = "none";
+      fri1.style.display = "none";
+      sat1.style.display = "none";
+      wed.classList.add("active");
+      // removing active class
+      mon.classList.remove("active");
+      tue.classList.remove("active");
+      thu.classList.remove("active");
+      fri.classList.remove("active");
+      sat.classList.remove("active");
+    });
+    thu.addEventListener("click", function () {
+      mon1.style.display = "none";
+      tue1.style.display = "none";
+      wed1.style.display = "none";
+      thu1.style.display = "flex";
+      fri1.style.display = "none";
+      sat1.style.display = "none";
+      thu.classList.add("active");
+      // removing active class
+      mon.classList.remove("active");
+      wed.classList.remove("active");
+      tue.classList.remove("active");
+      fri.classList.remove("active");
+      sat.classList.remove("active");
+    });
+    fri.addEventListener("click", function () {
+      mon1.style.display = "none";
+      tue1.style.display = "none";
+      wed1.style.display = "none";
+      thu1.style.display = "none";
+      fri1.style.display = "flex";
+      sat1.style.display = "none";
+      fri.classList.add("active");
+      // removing active class
+      mon.classList.remove("active");
+      wed.classList.remove("active");
+      thu.classList.remove("active");
+      tue.classList.remove("active");
+      sat.classList.remove("active");
+    });
+    sat.addEventListener("click", function () {
+      mon1.style.display = "none";
+      tue1.style.display = "none";
+      wed1.style.display = "none";
+      thu1.style.display = "none";
+      fri1.style.display = "none";
+      sat1.style.display = "flex";
+      sat.classList.add("active");
+      // removing active class
+      mon.classList.remove("active");
+      wed.classList.remove("active");
+      thu.classList.remove("active");
+      fri.classList.remove("active");
+      tue.classList.remove("active");
+    });
+  </script>
+  
+
+  <script>
+    const chartOptions1 = {
+        type: 'bar',
+        data: {
+            labels: ['1', '2', '3', '4', '5'],
+            datasets: [{
+                label: 'Line Chart',
+                data: [10, 20, 30, 40, 50],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2
+            }]
+        }
+    };
+    const chartOptions2 = {
+        type: 'bar',
+        data: {
+            labels: ['1', '2', '3', '4', '5'],
+            datasets: [{
+                label: 'Line Chart',
+                data: [10, 20, 2, 1, 50],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2
+            }]
+        }
+    };
+    const chartOptions3 = {
+        type: 'bar',
+        data: {
+            labels: ['1', '2', '3', '4', '5'],
+            datasets: [{
+                label: 'Line Chart',
+                data: [1, 5, 30, 5, 50],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2
+            }]
+        }
+    };
+    const chartOptions4 = {
+        type: 'bar',
+        data: {
+            labels: ['1', '2', '3', '4', '5'],
+            datasets: [{
+                label: 'Line Chart',
+                data: [10, 20, 6, 40, 3],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2
+            }]
+        }
+    };
+    const chartOptions5 = {
+        type: 'bar',
+        data: {
+            labels: ['1', '2', '3', '4', '5'],
+            datasets: [{
+                label: 'Line Chart',
+                data: [10, 20, 4, 40, 5],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2
+            }]
+        }
+    };
+    const chartOptions6 = {
+        type: 'bar',
+        data: {
+            labels: ['Clarity', 'Engagement', 'Encouragement', 'Learning', 'Satisfication'],
+            datasets: [{
+                label: 'Line Chart',
+                data: [4.5, 3.4, 4.0, 4.1, 5],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2
+            }]
+        }
+    };
+
+    const chart1Ctx = document.getElementById('chart1').getContext('2d');
+    new Chart(chart1Ctx, chartOptions1);
+
+    const chart2Ctx = document.getElementById('chart2').getContext('2d');
+    new Chart(chart2Ctx, chartOptions2);
+
+    const chart3Ctx = document.getElementById('chart3').getContext('2d');
+    new Chart(chart3Ctx, chartOptions3);
+
+    const chart4Ctx = document.getElementById('chart4').getContext('2d');
+    new Chart(chart4Ctx, chartOptions4);
+
+    const chart5Ctx = document.getElementById('chart5').getContext('2d');
+    new Chart(chart5Ctx, chartOptions5);
+
+    const chart6Ctx = document.getElementById('chart6').getContext('2d');
+    new Chart(chart6Ctx, chartOptions6);
+</script>
+
