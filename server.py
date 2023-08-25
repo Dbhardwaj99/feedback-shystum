@@ -70,14 +70,11 @@ def dashboard():
         else:
             return decoded, 401
         
-
-
-
-       
+ 
 @server.route("/form", methods=["POST"])
 def form():
-    id = request.form.get('feedback')
-    print("blablabla"+str(id))
+    # id = request.form.get('feedback')
+    # print("blablabla"+str(id))
     token = request.cookies.get("jwt_token")
 
     print("JWT Token from Cookie:", token)
@@ -91,9 +88,11 @@ def form():
             return render_template("/views/feed-form.html")
         else:
             return decoded, 401
+        
 
 @server.route("/submitform", methods=["POST"])
 def submitform():
+
     data = request.json
     regnum = data.get("regnum")
     q1 = data.get("q1")
@@ -110,6 +109,25 @@ def submitform():
     print("Question 4:", q4)
     print("Question 5:", q5)
         
+    token = request.cookies.get("jwt_token")
+
+    print("JWT Token from Cookie:", token)
+    if token == "":
+        return "Missing token", 401
+    else:
+        # validate
+        decoded, status = validate(token)
+        if status == 200:
+            # print(decoded)
+            response = make_response(redirect(url_for("thankyou")))
+            response.set_cookie("jwt_token", token)
+            return response 
+        else:
+            return decoded, 401
+        
+@server.route("/thankyou", methods=["GET"])
+def thankyou():
+    print("Thank you")
     return render_template("/views/thank-you.html")
 
         
