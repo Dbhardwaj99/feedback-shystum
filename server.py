@@ -24,6 +24,11 @@ print(os.environ.get("MYSQL_DB"))
 def show_login():
     return render_template("/views/login.html")
 
+@server.route("/thankyou", methods=["GET"])
+def thankyou():
+    print("Thank you")
+    return render_template("/views/thank-you.html")
+
 
 @server.route("/login", methods=["POST"])
 def login():
@@ -70,18 +75,13 @@ def dashboard():
         else:
             return decoded, 401
         
- 
+@server.route("/form_lec", methods=["GET"]) 
+def form_lec():
+    return render_template("/views/feed-form.html")
+
+
 @server.route("/form", methods=["POST"])
 def form():
-    # id = request.form.get('feedback')
-    data = request.json
-    sub_code = data.get("subject-code")
-    date = data.get("date")
-    time = data.get("time")
-    print("Subject Code:", sub_code)
-    print("Date:", date)
-    print("Time:", time)
-
     # print("blablabla"+str(id))
     token = request.cookies.get("jwt_token")
 
@@ -93,36 +93,13 @@ def form():
         decoded, status = validate(token)
         if status == 200:
             print(decoded)
-            return render_template("/views/feed-form.html")
+            return make_response(redirect(url_for("form_lec")))
         else:
             return decoded, 401
         
 
 @server.route("/submitform", methods=["POST"])
-def submitform():
-
-    data = request.json
-    regnum = data.get("regnum")
-    q1 = data.get("q1")
-    q2 = data.get("q2")
-    q3 = data.get("q3")
-    q4 = data.get("q4")
-    q5 = data.get("q5")
-        
-
-    print("Registration Number:", regnum)
-    print("Question 1:", q1)
-    print("Question 2:", q2)
-    print("Question 3:", q3)
-    print("Question 4:", q4)
-    print("Question 5:", q5)
-    print(type(q1))
-
-    cur = mysql.connection.cursor()
-    cur.execute(
-        "INSERT INTO class_feedback (reg_no, q1, q2, q3, q4, q5) VALUES (%s, %s, %s, %s, %s, %s)", (regnum, q1, q2, q3, q4, q5)
-    )
-        
+def submitform(): 
     token = request.cookies.get("jwt_token")
 
     print("JWT Token from Cookie:", token)
@@ -139,10 +116,6 @@ def submitform():
         else:
             return decoded, 401
         
-@server.route("/thankyou", methods=["GET"])
-def thankyou():
-    print("Thank you")
-    return render_template("/views/thank-you.html")
 
 
 @server.route("/analysis", methods=["GET"])
