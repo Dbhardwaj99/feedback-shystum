@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    padding: 4vh 3vw;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.subjects{
+    width: 100%;
+    height: 77vh;
+    margin-top: 2vh;
+    background-color: #e1dddd;
+    border-radius: 7px;
+    padding: 1rem;
+}
+.class{
+    background-color: #ffff;
+    width: 25rem;
+    height: 8.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 7px;
+}
+.time{
+    background: #0000001d;
+    width: 10rem;
+    padding: 0.1rem 0.3rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+.sub{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.sub-code{
+    font-weight: 100;
+}
+.buttons{
+    display: flex;
+    gap: 1rem;
+}
+.buttons button{
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background: #295eff;
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+}
+.thu1{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #fff;
+}
+.d{
+    flex-wrap: wrap;
+    gap: 2rem;
+    display: none;
+}
+.week-bar ul{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3vh;
+}
+.week-bar li{
+    list-style: none;
+    width: calc(95%/6);
+    text-align: center;
+    background-color: #e1dddd;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.week-bar li:hover{
+    background-color: #b9b6b6;
+}
+
+.active{
+    background: black !important;
+    color: #fff;
+}
+
+.deactivate{
+    background-color: #e1dddd;
+    color: #000;
+}

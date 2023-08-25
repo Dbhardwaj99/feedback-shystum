@@ -3,20 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/dash.css">
+    <link rel="stylesheet" href="../../static/css/dash.css">
     <title>Dashboard</title>
 </head>
 <body>
-    <form action="/form" method="post"> 
+    <!-- <form action="/form" method="post"> 
         <button type="submit">Create Feedback</button>
         <input type="hidden" name="Feedback" value="1">
     </form>
     <form action="/analysis" method="post">
         <button type="submit">Get Analysis</button>
         <input type="hidden" name="" value="2">
-    </form>
+    </form> -->
+    <section class="header">
+        <h1>Hello !</h1>
+      </section>
+      <section class="week-bar">
+        <ul>
+          <li class="mon">Monday</li>
+          <li class="tue">Tuesday</li>
+          <li class="wed">Wednesday</li>
+          <li class="thu">Thursday</li>
+          <li class="fri">Friday</li>
+          <li class="sat">Saturday</li>
+        </ul>
+      </section>
+      <main class="subjects">
+        <section class="mon1 d">
+          <div class="class">
+          <p class="time">9:00 - 10:00 Am</p>
+          <p class="sub"><span class="sub-code">MA-3432</span>Engenieering Mathematics</p>
+          <div class="buttons">
+              <button>Create Feedback</button>
+              <button>Get Analysis</button>
+          </div>
+      </div>
+          <div class="class">
+          <p class="time">1:00 - 2:00 Pm</p>
+          <p class="sub"><span class="sub-code">IT-3432</span>Data Structure</p>
+          <div class="buttons">
+              <button>Create Feedback</button>
+              <button>Get Analysis</button>
+          </div>
+      </div>
+  </section>
+        <section class="tue1 d">  
+          <div class="class">
+          <p class="time">11:00 - 12:00 Am</p>
+          <p class="sub"><span class="sub-code">MA-3432</span>Data Structure</p>
+          <div class="buttons">
+              <button>Create Feedback</button>
+              <button>Get Analysis</button>
+          </div>
+      </div>
+  </section>
+        <section class="wed1 d">  
+          <div class="class">
+          <p class="time">9:00 - 10:00 Am</p>
+          <p class="sub"><span class="sub-code">MA-3432</span>Engenieering Mathematics</p>
+          <div class="buttons">
+              <button>Create Feedback</button>
+              <button>Get Analysis</button>
+          </div>
+      </div></section>
+        <section class="thu1 d">No Classes Today</section>
+        <section class="fri1 d">
+          <div class="class">
+              <p class="time">9:00 - 10:00 Am</p>
+              <p class="sub"><span class="sub-code">MA-3432</span>Engenieering Mathematics</p>
+              <div class="buttons">
+                  <button>Create Feedback</button>
+                  <button>Get Analysis</button>
+              </div>
+          </div>
+          <div class="class">
+              <p class="time">9:00 - 10:00 Am</p>
+              <p class="sub"><span class="sub-code">MA-3432</span>Engenieering Mathematics</p>
+              <div class="buttons">
+                  <button>Create Feedback</button>
+                  <button>Get Analysis</button>
+              </div>
+          </div>
+          <div class="class">
+              <p class="time">9:00 - 10:00 Am</p>
+              <p class="sub"><span class="sub-code">MA-3432</span>Engenieering Mathematics</p>
+              <div class="buttons">
+                  <button>Create Feedback</button>
+                  <button>Get Analysis</button>
+              </div>
+          </div>
+        </section>
+        <section class="sat1 d">
+          <div class="class">
+              <p class="time">9:00 - 10:00 Am</p>
+              <p class="sub"><span class="sub-code">MA-3432</span>Engenieering Mathematics</p>
+              <div class="buttons">
+                  <button>Create Feedback</button>
+                  <button>Get Analysis</button>
+              </div>
+          </div>
+        </section>
+      </main>
    
     
     
 </body>
 </html>
+
+<script>
+    // list item selected
+    const mon = document.querySelector(".mon");
+    const tue = document.querySelector(".tue");
+    const wed = document.querySelector(".wed");
+    const thu = document.querySelector(".thu");
+    const fri = document.querySelector(".fri");
+    const sat = document.querySelector(".sat");
+    // container selected
+    const mon1 = document.querySelector(".mon1");
+    const tue1 = document.querySelector(".tue1");
+    const wed1 = document.querySelector(".wed1");
+    const thu1 = document.querySelector(".thu1");
+    const fri1 = document.querySelector(".fri1");
+    const sat1 = document.querySelector(".sat1");
+  
+    mon.addEventListener("click", function () {
+      // alldiv.style.display = "none";
+      mon1.style.display = "flex";
+      tue1.style.display = "none";
+      wed1.style.display = "none";
+      thu1.style.display = "none";
+      fri1.style.display = "none";
+      sat1.style.display = "none";
+      mon.classList.add("active");
+      // removing active class
+      tue.classList.remove("active");
+      wed.classList.remove("active");
+      thu.classList.remove("active");
+      fri.classList.remove("active");
+      sat.classList.remove("active");
+    });
+    tue.addEventListener("click", function () {
+      mon1.style.display = "none";
+      tue1.style.display = "flex";
+      wed1.style.display = "none";
+      thu1.style.display = "none";
+      fri1.style.display = "none";
+      sat1.style.display = "none";
+      tue.classList.add("active");
+      // removing active class
+      mon.classList.remove("active");
+      wed.classList.remove("active");
+      thu.classList.remove("active");
+      fri.classList.remove("active");
+      sat.classList.remove("active");
+    });
+    wed.addEventListener("click", function () {
+      mon1.style.display = "none";
+      tue1.style.display = "none";
+      wed1.style.display = "flex";
+      thu1.style.display = "none";
+      fri1.style.display = "none";
+      sat1.style.display = "none";
+      wed.classList.add("active");
+      // removing active class
+      mon.classList.remove("active");
+      tue.classList.remove("active");
+      thu.classList.remove("active");
+      fri.classList.remove("active");
+      sat.classList.remove("active");
+    });
+    thu.addEventListener("click", function () {
+      mon1.style.display = "none";
+      tue1.style.display = "none";
+      wed1.style.display = "none";
+      thu1.style.display = "flex";
+      fri1.style.display = "none";
+      sat1.style.display = "none";
+      thu.classList.add("active");
+      // removing active class
+      mon.classList.remove("active");
+      wed.classList.remove("active");
+      tue.classList.remove("active");
+      fri.classList.remove("active");
+      sat.classList.remove("active");
+    });
+    fri.addEventListener("click", function () {
+      mon1.style.display = "none";
+      tue1.style.display = "none";
+      wed1.style.display = "none";
+      thu1.style.display = "none";
+      fri1.style.display = "flex";
+      sat1.style.display = "none";
+      fri.classList.add("active");
+      // removing active class
+      mon.classList.remove("active");
+      wed.classList.remove("active");
+      thu.classList.remove("active");
+      tue.classList.remove("active");
+      sat.classList.remove("active");
+    });
+    sat.addEventListener("click", function () {
+      mon1.style.display = "none";
+      tue1.style.display = "none";
+      wed1.style.display = "none";
+      thu1.style.display = "none";
+      fri1.style.display = "none";
+      sat1.style.display = "flex";
+      sat.classList.add("active");
+      // removing active class
+      mon.classList.remove("active");
+      wed.classList.remove("active");
+      thu.classList.remove("active");
+      fri.classList.remove("active");
+      tue.classList.remove("active");
+    });
+  </script>
+  
