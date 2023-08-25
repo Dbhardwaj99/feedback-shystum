@@ -27,15 +27,18 @@ CREATE TABLE class_feedback(
     q3 INT NOT NULL CHECK (q3 BETWEEN 1 AND 5),
     q4 INT NOT NULL CHECK (q4 BETWEEN 1 AND 5),
     q5 INT NOT NULL CHECK (q5 BETWEEN 1 AND 5)
+    -- FOREIGN KEY (reg_no) REFERENCES student(reg_no),
+    -- FOREIGN KEY (subject_id) REFERENCES teacher(subject_id)
 );
 
 CREATE TABLE subject_feedback(
-    subject_id INT NOT NULL PRIMARY KEY,
+    subject_id INT NOT NULL  PRIMARY KEY,
     q1 INT NOT NULL CHECK (q1 BETWEEN 1 AND 5),
     q2 INT NOT NULL CHECK (q2 BETWEEN 1 AND 5),
     q3 INT NOT NULL CHECK (q3 BETWEEN 1 AND 5),
     q4 INT NOT NULL CHECK (q4 BETWEEN 1 AND 5),
     q5 INT NOT NULL CHECK (q5 BETWEEN 1 AND 5)
+    -- FOREIGN KEY (subject_id) REFERENCES teacher(subject_id)
 );
 
 CREATE TABLE weekly_feedback(
@@ -45,5 +48,6 @@ CREATE TABLE weekly_feedback(
     q3 INT NOT NULL CHECK (q3 BETWEEN 1 AND 5),
     q4 INT NOT NULL CHECK (q4 BETWEEN 1 AND 5),
     q5 INT NOT NULL CHECK (q5 BETWEEN 1 AND 5)
+    -- FOREIGN KEY (subject_id) REFERENCES teacher(subject_id)
 );
 
