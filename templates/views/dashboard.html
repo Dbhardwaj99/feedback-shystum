@@ -262,8 +262,22 @@
         headerfile["date"] = formattedDate;
         headerfile["time"] = lecture_time;
         console.log(headerfile);
-        sendingData(headerfile);
+        // sendingData(headerfile);
         // openPopup();
+        fetch("/form", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(headerfile),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Response from backend:", data);
+            })
+            .catch((error) => {
+                console.error("Error sending data:", error);
+            });
     }
     function createfeedback2() {
         console.log("button working");
@@ -278,7 +292,7 @@
         headerfile["date"] = formattedDate;
         headerfile["time"] = lecture_time;
         console.log(headerfile);
-        sendingData(headerfile);
+        // sendingData(headerfile);
         // openPopup();
     }
     function createfeedback3() {
@@ -294,7 +308,7 @@
         headerfile["date"] = formattedDate;
         headerfile["time"] = lecture_time;
         console.log(headerfile);
-        sendingData(headerfile);
+        // sendingData(headerfile);
         // openPopup();
     }
     function createfeedback4() {
@@ -310,7 +324,7 @@
         headerfile["date"] = formattedDate;
         headerfile["time"] = lecture_time;
         console.log(headerfile);
-        sendingData(headerfile);
+        // sendingData(headerfile);
         // openPopup();
     }
     function createfeedback5() {
@@ -326,7 +340,7 @@
         headerfile["date"] = formattedDate;
         headerfile["time"] = lecture_time;
         console.log(headerfile);
-        sendingData(headerfile);
+        // sendingData(headerfile);
         // openPopup();
     }
     function createfeedback6() {
@@ -342,7 +356,7 @@
         headerfile["date"] = formattedDate;
         headerfile["time"] = lecture_time;
         console.log(headerfile);
-        sendingData(headerfile);
+        // sendingData(headerfile);
         // openPopup();
     }
     function createfeedback7() {
@@ -358,7 +372,7 @@
         headerfile["date"] = formattedDate;
         headerfile["time"] = lecture_time;
         console.log(headerfile);
-        sendingData(headerfile);
+        // sendingData(headerfile);
         // openPopup();
     }
     function createfeedback8() {
@@ -374,24 +388,24 @@
         headerfile["date"] = formattedDate;
         headerfile["time"] = lecture_time;
         console.log(headerfile);
-        sendingData(headerfile);
+        // sendingData(headerfile);
         // openPopup();
     }
-    function sendingData(headerfile) {
-        fetch("/form", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(headerfile),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log("Response from backend:", data);
-            })
-            .catch((error) => {
-                console.error("Error sending data:", error);
-            });
-        // alert(headerfile);
-    }
+    // function sendingData(headerfile) {
+    //     fetch("/form", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify(headerfile),
+    //     })
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             console.log("Response from backend:", data);
+    //         })
+    //         .catch((error) => {
+    //             console.error("Error sending data:", error);
+    //         });
+    //     // alert(headerfile);
+    // }
 </script>
