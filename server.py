@@ -59,7 +59,7 @@ def login():
 @server.route("/", methods=["GET"])
 def dashboard():
     token = request.cookies.get("jwt_token")
-    print("JWT Token from Cookie:", token)
+    # print("JWT Token from Cookie:", token)
     if token == "":
         return "Missing token", 401
     else:
@@ -74,10 +74,18 @@ def dashboard():
 @server.route("/form", methods=["POST"])
 def form():
     # id = request.form.get('feedback')
+    data = request.json
+    sub_code = data.get("subject-code")
+    date = data.get("date")
+    time = data.get("time")
+    print("Subject Code:", sub_code)
+    print("Date:", date)
+    print("Time:", time)
+
     # print("blablabla"+str(id))
     token = request.cookies.get("jwt_token")
 
-    print("JWT Token from Cookie:", token)
+    # print("JWT Token from Cookie:", token)
     if token == "":
         return "Missing token", 401
     else:
@@ -136,7 +144,52 @@ def thankyou():
     print("Thank you")
     return render_template("/views/thank-you.html")
 
+
+@server.route("/analysis", methods=["GET"])
+def analysis():
+    token = request.cookies.get("jwt_token")
+    header = request.get()
+    # take header and get the id
+
+
+    print("JWT Token from Cookie:", token)
+    if token == "":
+        return "Missing token", 401
+    else:
+        # validate
+        decoded, status = validate(token)
+        if status == 200:
+            data = []
+
+            return render_template("/views/feed-analysis.html")
+        else:
+            return decoded, 401 
+    
+    
+server.route("/analysis", methods=["POST"])
+def analysis():
+    token = request.cookies.get("jwt_token")
+    print("JWT Token from Cookie:", token)
+    if token == "":
+        return "Missing token", 401
+    else:
+        # validate
+        decoded, status = validate(token)
+        if status == 200:
+            data = []
+            cur = mysql.connection.cursor()
+            cur.execute(
+                "SELECT * FROM class_feedback"
+            )
+            result = cur.fetchall()
+            for row in result:
+                data.append(row)
+            print(data)
+            return render_template("/views/feed-analysis.html", data=data)
+        else:
+            return decoded, 401
         
+
 # @server.route("/analysis?{id}",id=id, methods=["GET"])
 # def analysis():
 #     token = request.cookies.get("jwt_token")
